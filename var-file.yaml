@@ -1,0 +1,5 @@
+---
+auth_url: http://192.168.2.40:5000/v2.0
+username: admin
+password: admin
+project_name: admin

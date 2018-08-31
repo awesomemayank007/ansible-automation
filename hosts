@@ -1,0 +1,3 @@
+[ansible-tower]
+#localhost
+10.210.30.53 ansible_user=ansible
