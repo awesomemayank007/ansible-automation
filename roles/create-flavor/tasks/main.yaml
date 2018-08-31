@@ -1,0 +1,26 @@
+---
+- name: "Create Flavor "
+  ignore_errors: yes
+  os_nova_flavor:
+    name: "{{ flavorname }}"
+    state: present
+    ram: "{{ ram }}"
+    vcpus: "{{ vcpus }}"
+    rxtx_factor: 1
+    disk: "{{ disk }}"
+    extra_specs:
+      "hw:vif_multiqueue_enabled": "True"
+      "hw:cpu_policy": "dedicated"
+      "hw:mem_page_size": 1048576
+      "aggregate_instance_extra_specs:"{{ aggregate_instance_extra_specs }}: "True"
+      "hw:cpu_realtime": "yes" 
+      "hw:cpu_realtime_mask": '^0'
+      "hw:cpu_thread_policy": 'isolate' 	  
+    auth:
+      auth_url: "{{ auth_url }}"
+      username: "{{ username }}"
+      password: "{{ password }}"
+      project_name: "{{ project_name  }}"
+    cacert: /etc/ssl/certs/CEE/ctrl-ca.crt
+#- debug:
+#    var: openstack_projects

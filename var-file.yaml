@@ -1,5 +1,13 @@
 ---
+########## MUST USE IN EVERY ROLE  ################
 auth_url: http://192.168.2.40:5000/v2.0
 username: admin
 password: admin
 project_name: admin
+
+########## TO BE USED WITH CREATING FLAVOR ################
+flavorname: test-ansible
+ram: 2
+vcpus: 11
+disk: 11
+aggregate_instance_extra_specs: te
