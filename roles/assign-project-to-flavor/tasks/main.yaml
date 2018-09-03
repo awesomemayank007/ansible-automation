@@ -1,0 +1,15 @@
+---
+- name: "Enable access to flavor = {{ flavorname }} to project = {{ target_project_id }}"
+  ignore_errors: no
+  os_project_access:
+#    cloud: mycloud
+    state: present
+    target_project_id: "{{ target_project_id }}"
+    resource_name: "{{ flavorname }}"
+    resource_type: nova_flavor
+    auth:
+      auth_url: "{{ auth_url }}"
+      username: "{{ username }}"
+      password: "{{ password }}"
+      project_name: "{{ project_name }}"
+    cacert: "{{ cacert }}"

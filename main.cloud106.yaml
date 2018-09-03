@@ -2,8 +2,7 @@
 - hosts: ansible-tower
   gather_facts: no
   vars_files:
-#  - cloud105.yaml
-  - cloud106.yaml
+  - vars.cloud106.yaml
 
   roles:
 #    - list-flavor

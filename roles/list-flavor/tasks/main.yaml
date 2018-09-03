@@ -8,6 +8,6 @@
       username: "{{ username }}"
       password: "{{ password }}"
       project_name: "{{ project_name  }}"
-    cacert: /etc/ssl/certs/CEE/ctrl-ca.crt
+    cacert: "{{ cacert }}"
 - debug:
     var: openstack_projects
