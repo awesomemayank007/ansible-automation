@@ -5,11 +5,10 @@
   - vars.cloud106.yaml
 
   roles:
-#    - list-flavor
-    - {role: create-flavor, flavorname: test1, ram: 6,vcpus: 10, disk: 10}
+#    - {role: list-flavor, admin_project_name: "admin"}
+#    - {role: create-flavor, flavorname: test1, ram: 6,vcpus: 10, disk: 10, admin_project_id: 3c190948fac0433fad8bd5b3703bbb1e}
 
-# in  target_project_id: you cann't provide comma , saperated list
-# in  flavorname:        you have to provide falvor name which you want ot allow accessed within target_project_id 
-#example : - {role: test, flavorname: test1, target_project_id: 3c190948fac0433fad8bd5b3703bbb1e,f760d38dc1844b968d57aa9867e0ed2d} 
-    - {role: assign-project-to-flavor, flavorname: test1, target_project_id: "10daa729fa54449a8f9d4e2b78402c81"}
-
+#/ in  target_project_id: you cann't provide comma , saperated list
+#/ in  flavorname:        you have to provide falvor name which you want ot allow accessed within target_project_id 
+#/ example : - {role: test, flavorname: test1, target_project_id: 3c190948fac0433fad8bd5b3703bbb1e,f760d38dc1844b968d57aa9867e0ed2d} 
+#    - {role: assign-project-to-flavor, flavorname: test1, target_project_id: "10daa729fa54449a8f9d4e2b78402c81"}

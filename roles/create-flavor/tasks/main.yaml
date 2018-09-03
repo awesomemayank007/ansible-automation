@@ -23,3 +23,18 @@
       password: "{{ password }}"
       project_name: "{{ project_name  }}"
     cacert: "{{ cacert }}"
+
+- name: "Access to flavor = {{ flavorname }} to project = Admin Project"
+  ignore_errors: no
+  os_project_access:
+    state: present
+    target_project_id: "{{ admin_project_id }}"
+    resource_name: "{{ flavorname }}"
+    resource_type: nova_flavor
+    auth:
+      auth_url: "{{ auth_url }}"
+      username: "{{ username }}"
+      password: "{{ password }}"
+      project_name: "{{ project_name }}"
+    cacert: "{{ cacert }}"
+

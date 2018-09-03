@@ -1,8 +1,8 @@
 ---
 - name: "List Existing User "
-  ignore_errors: yes
+  ignore_errors: no
   os_project_facts:
-    name: "admin"
+    name: "{{ admin_project_name }}"
     auth:
       auth_url: "{{ auth_url }}"
       username: "{{ username }}"

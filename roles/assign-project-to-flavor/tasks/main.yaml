@@ -2,7 +2,6 @@
 - name: "Enable access to flavor = {{ flavorname }} to project = {{ target_project_id }}"
   ignore_errors: no
   os_project_access:
-#    cloud: mycloud
     state: present
     target_project_id: "{{ target_project_id }}"
     resource_name: "{{ flavorname }}"
