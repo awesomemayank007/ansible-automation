@@ -1,0 +1,29 @@
+---
+#- name: "Fatching info about network {{ network_name }} "
+#  os_networks_facts:
+#   name: "{{ network_name }}" 
+#   auth:
+#      auth_url: "{{ auth_url }}"
+#      username: "{{ username }}"
+#      password: "{{ password }}"
+#      project_name: "{{ project_name  }}"
+#   cacert: "{{ cacert }}"
+#  register: result 
+#- debug: var=result.ansible_facts.openstack_networks[0].status
+#- debug: var=result
+
+- name: "how to find out instance is with any tenant or not"
+  os_server_facts:
+#   server: "*vm"
+   auth:
+      auth_url: "{{ auth_url }}"
+      username: "{{ username }}"
+      password: "{{ password }}"
+      project_name: "{{ project_name  }}"
+   cacert: "{{ cacert }}"
+  register: project_var
+- debug: var=openstack_servers[0].accessIPv4
+- debug: var=openstack_servers[1].accessIPv4
+
+- name: "printing things"
+  shell: "echo {{ project_var.ansible_facts.openstack_servers[0].project_id }} > /tmp/t"
