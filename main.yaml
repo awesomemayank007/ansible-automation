@@ -14,5 +14,5 @@
 # in  flavorname:        you have to provide falvor name which you want ot allow accessed within target_project_id 
 #example : - {role: test, flavorname: test1, target_project_id: 3c190948fac0433fad8bd5b3703bbb1e,f760d38dc1844b968d57aa9867e0ed2d} 
 #    - {role: assign-project-to-flavor, flavorname: test1, target_project_id: "10daa729fa54449a8f9d4e2b78402c81"}
-#    - {role: delete-orphan-resources, project_name: tesing}
-    - {role: delete-orphan-resources, network_name: "Public"}
+    - {role: delete-orphan-resources, get_project_name: "testing"}
+#    - {role: delete-orphan-resources, network_name: "Public"}
