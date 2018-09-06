@@ -1,0 +1,3 @@
+---
+- name: "Cleaning Network"
+  raw: ". ~/openrc; neutron purge {{ projectid.ansible_facts.openstack_projects[0].id }}"

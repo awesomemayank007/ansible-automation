@@ -1,0 +1,24 @@
+---
+- name: "Getting All Instance INFO "
+  os_server_facts:
+    auth:
+      auth_url: "{{ auth_url }}"
+      username: "{{ username }}"
+      password: "{{ password }}"
+      project_name: "{{ project_name  }}"
+    cacert: "{{ cacert }}"
+  register: results
+
+- name: "Deleting All Instance From Project = {{ project_name }}"
+  os_server:
+    state: absent 
+    delete_fip: True
+    name: "{{ item.name }}"
+    auth:
+      auth_url: "{{ auth_url }}"
+      username: "{{ username }}"
+      password: "{{ password }}"
+      project_name: "{{ project_name  }}"
+    cacert: "{{ cacert }}"
+  with_items:
+    -  "{{ results.ansible_facts.openstack_servers }}"

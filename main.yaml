@@ -3,16 +3,39 @@
   gather_facts: no
   vars_files:
 #  - cloud105.yaml
-  - vars.cloud106.yaml
-
+#  - vars.cloud106.yaml
+  - vars.cloud106.mayank.yaml
   roles:
-#    - delete-orphan-resources
-#    - list-flavor
-#    - {role: create-flavor, flavorname: test1, ram: 6,vcpus: 10, disk: 10}
+#SYNTAX:
+###### list-all-projects : this role list all project details of user details mentioned in var file in section
+#    - list-all-projects
+######
 
-# in  target_project_id: you cann't provide comma , saperated list
+###### get-project-details : this role get project details of an specific project name as proj_name variable 
+#    - {role: get-project-details, proj_name: "admin" }
+######
+
+###### create-flavor,assign-project-to-flavor
+######NOTE:{ ROLE NAMED create-flavor AND assign-project-to-flavor SHOULD BE EXECUTED TOGETHER
+#    - {role: create-flavor, flavorname: "final-test", ram: 6,vcpus: 10, disk: 10}
+#    - {role: assign-project-to-flavor, flavorname: "final-test", target_project_id: ["7a54bf4a43394eac9021074d4304d311","40a151b7c6b24e71b5cc057e90a65f18","3c190948fac0433fad8bd5b3703bbb1e"]}
+#          }
+# in  target_project_id: you can provide comma , saperated list as well
 # in  flavorname:        you have to provide falvor name which you want ot allow accessed within target_project_id 
-#example : - {role: test, flavorname: test1, target_project_id: 3c190948fac0433fad8bd5b3703bbb1e,f760d38dc1844b968d57aa9867e0ed2d} 
-#    - {role: assign-project-to-flavor, flavorname: test1, target_project_id: "10daa729fa54449a8f9d4e2b78402c81"}
-    - {role: delete-orphan-resources, get_project_name: "testing"}
-#    - {role: delete-orphan-resources, network_name: "Public"}
+#######
+
+###### delete-network-resources :  you cann't delete admin network resources using this module (Networks,Subnets,Ports,Router interfaces,Routers,Floating IP addresses,Security groups)
+#    - {role: delete-network-resources, get_project_name: "admin"}
+######
+
+###### delete-stack : can delete stack placed in stack_list variable in , saperated list 
+#    - {role: delete-stack, stack_list: ['test','test1']} or     - {role: delete-stack, stack_list: ['induadial']}
+######
+
+##### delete-all-instance : can delete all instance on thet project whic credentionals are shared under "vars_files" Section on above this file 
+#   - {role: delete-all-instance}
+#####
+
+##### delete-all-images : can delete all instance on thet project whic credentionals are shared under "vars_files" Section on above this file 
+#   - {role: delete-all-images}
+#####

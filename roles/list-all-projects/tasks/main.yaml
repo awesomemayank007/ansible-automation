@@ -1,0 +1,13 @@
+---
+- name: "List Existing Projects "
+  ignore_errors: yes
+  os_project_facts:
+#    name: "admin"
+    auth:
+      auth_url: "{{ auth_url }}"
+      username: "{{ username }}"
+      password: "{{ password }}"
+      project_name: "{{ project_name  }}"
+    cacert: "{{ cacert }}"
+- debug:
+    var: openstack_projects

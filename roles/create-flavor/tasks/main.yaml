@@ -1,5 +1,5 @@
 ---
-- name: "Createing Flavor {{ flavorname }} "
+- name: "Creating Flavor {{ flavorname }} "
   ignore_errors: no
   os_nova_flavor:
     name: "{{ flavorname }}"

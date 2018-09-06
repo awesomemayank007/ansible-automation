@@ -1,0 +1,28 @@
+---
+- name: "Getting All IMG INFO "
+  os_image_facts:
+    auth:
+      auth_url: "{{ auth_url }}"
+      username: "{{ username }}"
+      password: "{{ password }}"
+      project_name: "{{ project_name  }}"
+    cacert: "{{ cacert }}"
+  register: results
+
+#- name: "showing image info"
+#  debug: 
+#    var: results
+ 
+- name: "Deleting All IMG From Project = {{ project_name }}"
+  ignore_errors: yes
+  os_image:
+    state: absent 
+    name: "{{ item.name }}"
+    auth:
+      auth_url: "{{ auth_url }}"
+      username: "{{ username }}"
+      password: "{{ password }}"
+      project_name: "{{ project_name  }}"
+    cacert: "{{ cacert }}"
+  with_items:
+    -  "{{ results.ansible_facts.openstack_image }}"

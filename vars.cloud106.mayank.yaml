@@ -1,0 +1,7 @@
+---
+########## MUST USE IN EVERY ROLE  ################
+auth_url: http://192.168.2.40:5000/v2.0
+username: mayank
+password: "M@$ter007"
+project_name: testing
+cacert: "/etc/ssl/certs/CEE/ctrl-ca.crt"

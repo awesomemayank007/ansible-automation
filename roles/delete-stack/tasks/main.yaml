@@ -1,0 +1,13 @@
+---
+- name: "Deleting stack = {{ item }} "
+  os_stack:
+    name: "{{ item }}"
+    state: "absent"
+    auth:
+       auth_url: "{{ auth_url }}"
+       username: "{{ username }}"
+       password: "{{ password }}"
+       project_name: "{{ project_name }}"
+    cacert: "{{ cacert }}"
+  with_items: 
+    - "{{ stack_list }}"

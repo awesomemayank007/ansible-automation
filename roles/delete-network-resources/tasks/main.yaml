@@ -1,0 +1,20 @@
+---
+- name: "Getting id of project {{ get_project_name }}"
+  os_project_facts:
+    name: "{{ get_project_name }}"
+    auth:
+       auth_url: "{{ auth_url }}"
+       username: "{{ username }}"
+       password: "{{ password }}"
+       project_name: "{{ project_name }}"
+    cacert: "{{ cacert }}"
+  register: projectid
+  notify: Cleaning Network
+  changed_when: true
+  when: not "{{ get_project_name }}"  == "admin"
+
+##################################### find below section inside handler###############################
+#handlers:
+#- name: "Cleaning Up All Networking Resources Like (Networks,Subnets,Ports,Router Interfaces, Routers, FloatingIP,Secuirity Group)... from project {{ get_project_name }} "
+#  raw: ". ~/openrc; neutron purge {{ projectid.ansible_facts.openstack_projects[0].id }}"
+######################################################################################################
