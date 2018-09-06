@@ -3,10 +3,14 @@
   gather_facts: no
   vars_files:
 #  - cloud105.yaml
-#  - vars.cloud106.yaml
-  - vars.cloud106.mayank.yaml
+  - vars.cloud106.yaml
+#  - vars.cloud106.mayank.yaml
   roles:
 #SYNTAX:
+######
+#   - list-flavor 
+######
+
 ###### list-all-projects : this role list all project details of user details mentioned in var file in section
 #    - list-all-projects
 ######
@@ -39,3 +43,5 @@
 ##### delete-all-images : can delete all instance on thet project whic credentionals are shared under "vars_files" Section on above this file 
 #   - {role: delete-all-images}
 #####
+   - list-flavor 
+
